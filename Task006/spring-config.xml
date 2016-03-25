@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="band" class="Task006.A2016_02_0814.Bandit">
+        <constructor-arg value="Владимир"/>
+        <constructor-arg value="Утюг"/>
+        <property name="weapon" ref="ak47"/>
+    </bean>
+    
+    <bean id="m4a4" class="Task006.A2016_02_0814.M4A4">
+        <property name="silencer" value="true"/>
+        <property name="owner" ref="pof"/>
+    </bean>
+
+    <bean id="ak47" class="Task006.A2016_02_0814.Ak47">
+        <constructor-arg ref="band"/>
+    </bean>
+
+    <bean id="boss" class="Task006.A2016_02_0814.Boss">
+        <constructor-arg value="Дон Карлеон"/>
+        <property name="rightHand" ref="band"/>
+    </bean>
+
+    <bean id="pof" class="Task006.A2016_02_0814.PoliceOfficer">
+        <constructor-arg name="name" value="Joe"/>
+        <constructor-arg name="rank" value="5"/>
+        <property name="informer" ref="band"/>
+    </bean>
+
+    <bean id="m4a4_police" class="Task006.A2016_02_0814.M4A4" scope="prototype">
+        <property name="silencer" value="true"/>
+        <property name="riflescope" value="true"/>
+    </bean>
+
+    <bean id="bpof" class="Task006.A2016_02_0814.BirdPoliceOfficer">
+        <constructor-arg value="Bird"/>
+        <constructor-arg value="2"/>
+        <property name="weapon" ref="m4a4_police"/>
+    </bean>
+
+    <bean id="dpof" class="Task006.A2016_02_0814.DolphinPoliceOfficer">
+        <property name="name" value="Dolphin"/>
+        <property name="rank" value="3"/>
+        <property name="weapon" ref="m4a4_police"/>
+    </bean>
+
+    <bean id="pd" class="Task006.A2016_02_0814.PoliceDoctor">
+        <property name="name" value="PoliceDoctor"/>
+        <property name="license" value="true"/>
+        <property name="сlient" ref="pof"/>
+    </bean>
+
+    <bean id="cd" class="Task006.A2016_02_0814.CriminalDoctor">
+        <property name="license" value="false"/>
+        <property name="name" value="CriminalDoctor"/>
+        <property name="client" ref="boss"/>
+     </bean>
+
+    <bean id="eagleKid1" class="Task006.A2016_02_0814.Eagle">
+        <constructor-arg name="name" value="eagleKid1"/>
+    </bean>
+
+    <bean id="eagleKid2" class="Task006.A2016_02_0814.Eagle">
+        <constructor-arg name="name" value="eagleKid2"/>
+    </bean>
+
+    <bean id="eagle" class="Task006.A2016_02_0814.Eagle">
+        <property name="name" value="eagle"/>
+        <property name="kids">
+            <list>
+                <ref bean="eagleKid1"/>
+                <ref bean="eagleKid2"/>
+            </list>
+        </property>
+        <property name="friend" ref="seal"/>
+    </bean>
+
+    <bean id="seal" class="Task006.A2016_02_0814.Seal">
+        <property name="name" value="seal"/>
+        <property name="kids">
+            <list>
+                <ref bean="sealKid1"/>
+                <ref bean="sealKid2"/>
+            </list>
+        </property>
+        <property name="fried" ref="eagle"/>
+    </bean>
+
+    <bean id="sealKid1" class="Task006.A2016_02_0814.Seal">
+        <constructor-arg name="name" value="sealKid1"/>
+    </bean>
+
+    <bean id="sealKid2" class="Task006.A2016_02_0814.Seal">
+        <constructor-arg name="name" value="sealKid2"/>
+    </bean>
+
+</beans>
