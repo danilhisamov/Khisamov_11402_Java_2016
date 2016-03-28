@@ -6,10 +6,12 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean id="developer" class="Task013.models.Developer">
-        <constructor-arg value="Danil"/>
+    <bean id="server" class="classes.Server"/>
+
+    <bean id="serverSocket" class="java.net.ServerSocket">
+        <constructor-arg value="3456"/>
     </bean>
 
-    <bean id="emailCheck" class="Task013.aspects.EmailCheck"/>
+    <bean id="deckCheck" class="aspects.DeckCheck"/>
 
 </beans>

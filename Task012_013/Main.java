@@ -1,6 +1,6 @@
-package Task013;
+package Task012_013;
 
-import Task013.models.Developer;
+import Task012_013.models.Developer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,8 +10,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("Task013/spring-config.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("Task012_013/spring-config.xml");
         Developer e = ac.getBean(Developer.class);
         e.setEmail("dan@dsf.asd");
+        e.execute(" database");
     }
 }

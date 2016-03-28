@@ -1,4 +1,4 @@
-package Task013.models;
+package Task012_013.models;
 
 /**
  * @author Danil Khisamov
@@ -32,6 +32,8 @@ public class Developer {
         System.out.println("Im learning language " + lang);
     }
 
-
+    public void execute(String s){
+        System.out.println("Запрос " + s + " выполнен");
+    }
 
 }
