@@ -25,6 +25,6 @@ public class IdentificationController {
             return "redirect:/client";
         }
 
-        return "redirect:registration";
+        return "redirect:/login";
     }
 }

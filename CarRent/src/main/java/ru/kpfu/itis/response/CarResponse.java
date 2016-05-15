@@ -1,10 +1,13 @@
 package ru.kpfu.itis.response;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 /**
  * @author Danil Khisamov
  *         11-402
  */
 public class CarResponse {
+    private Integer id;
     private String photoPath;
     private Integer price;
     private String model;
@@ -13,6 +16,14 @@ public class CarResponse {
     private String air_cond;
     private Integer doors;
     private Integer seats;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getPhotoPath() {
         return photoPath;

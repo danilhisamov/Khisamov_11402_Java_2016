@@ -52,5 +52,15 @@ public class ClientServiceImpl implements ClientService {
         clientRepository.save(clientEntity);
     }
 
+    @Override
+    public void save(ClientEntity clientEntity) {
+        clientRepository.save(clientEntity);
+    }
+
+    @Override
+    public Integer getAllClientCount() {
+        return clientRepository.getAllClientsCount();
+    }
+
 
 }

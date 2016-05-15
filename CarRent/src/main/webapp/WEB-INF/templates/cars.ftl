@@ -181,11 +181,6 @@ font-size: 36px;
                 </table>
                 <a href="#teaser" class="reserve-button scroll-to"><span
                         class="glyphicon glyphicon-calendar"></span> Reserve now</a>
-                <#if user?? && user.role == 'ROLE_ADMIN'>
-                <a href="/admin/car_registration">
-                <input type="button" name="admin_add_car_button" value="Add Car">
-                </a>
-                </#if>
             </div>
         </div>
     </div>

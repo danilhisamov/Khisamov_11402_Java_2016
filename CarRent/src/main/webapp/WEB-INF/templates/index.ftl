@@ -91,9 +91,9 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- Nav-Links start -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#" class="scroll-to">Home</a></li>
+                            <li class="active"><a href="/client" class="scroll-to">Home</a></li>
                             <li><a href="#services" class="scroll-to">Services</a></li>
-                            <li><a href="#vehicles" class="scroll-to">Vehicle Models</a></li>
+                            <li><a href="/cars" class="scroll-to">Vehicle Models</a></li>
                             <li><a href="#reviews" class="scroll-to">Reviews</a></li>
                             <li><a href="#locations" class="scroll-to">Locations</a></li>
                             <li><a href="#contact" class="scroll-to">Contact</a></li>
@@ -145,7 +145,7 @@
                         <!-- Car select start -->
                         <div class="styled-select-car">
                             <@sf.select path="car_id" name="car-select" id="car-select">
-                                <option value="" disabled>Select your car type</option>
+                                <option>Select your car type</option>
                                 <#list cars as car>
                                 <@sf.option value="${car.id}">${car.model}</@sf.option>
                                 </#list>

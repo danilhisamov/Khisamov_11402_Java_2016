@@ -95,8 +95,8 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#" class="scroll-to">Home</a></li>
                             <li><a href="#services" class="scroll-to">Services</a></li>
-                            <li><a href="#vehicles" class="scroll-to">Vehicle Models</a></li>
-                            <li><a href="#reviews" class="scroll-to">Reviews</a></li>
+                            <li><a href="/admin/cars" class="scroll-to">Vehicle Models</a></li>
+                            <li><a href="/admin/orders" class="scroll-to">Orders</a></li>
                             <li><a href="#locations" class="scroll-to">Locations</a></li>
                             <li><a href="#contact" class="scroll-to">Contact</a></li>
                         </ul>
@@ -127,25 +127,25 @@
                             <!-- SIDEBAR MENU -->
                             <div class="profile-usermenu" style="font-size: 15px">
                                 <ul class="nav">
-                                    <li class="active">
-                                        <a href="/client">
+                                    <li class="active" onclick="getOrdersByTime('all')">
+                                        <a>
                                             <i class="glyphicon glyphicon-home"></i>
-                                            Overview </a>
+                                            All Orders </a>
                                     </li>
-                                    <li>
-                                        <a href="/client/rides">
+                                    <li onclick="getOrdersByTime('current')">
+                                        <a>
                                             <i class="glyphicon glyphicon-user"></i>
-                                            Rides </a>
+                                            Current Orders</a>
                                     </li>
-                                    <li>
-                                        <a href="#" target="_blank">
+                                    <li onclick="getOrdersByTime('future')">
+                                        <a>
                                             <i class="glyphicon glyphicon-ok"></i>
-                                            Tasks </a>
+                                            Future Orders</a>
                                     </li>
-                                    <li>
-                                        <a href="#">
+                                    <li onclick="getOrdersByTime('past')">
+                                        <a>
                                             <i class="glyphicon glyphicon-flag"></i>
-                                            Help </a>
+                                            Completed Orders</a>
                                     </li>
                                 </ul>
                             </div>
@@ -153,40 +153,44 @@
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="profile-content" style="font-size: 13px;width: 921px;">
-                            <table class="table table-bordered" cellspacing="10px" border="1">
-                            <thead>
-                            <tr>
-                                <th>Model</th>
-                                <th>Pick-up Location</th>
-                                <th>Pick-up Date</th>
-                                <th>Pick-up Time</th>
-                                <th>Drop-off Location</th>
-                                <th>Drop-off Date</th>
-                                <th>Drop-off Time</th>
-                                <th>Price</th>
-                            </tr>
-                            <#list list as order>
-                                <tbody>
-                                <tr>
-                                    <td>${order.car.model}</td>
-                                    <td>${order.pickUpLoc}</td>
-                                    <td>${order.pickUpDate}</td>
-                                    <td>${order.pickUpTime}</td>
-                                <td>${order.dropOffLoc}</td>
-                                <td>${order.dropOffDate}</td>
-                                <td>${order.dropOffTime}</td>
-                                <td>${order.price}</td>
-                                <tr>
-                                </tbody>
-                            </#list>
-                            </table>
-                        </div>
+                    <div class="profile-content" style="font-size: 13px;width: 921px;">
+                    <table class="table table-bordered" cellspacing="10px" border="1">
+                    <thead>
+                    <tr>
+                        <th>Order Num.</th>
+                        <th>Client</th>
+                        <th>Model</th>
+                        <th>Pick-up Location</th>
+                        <th>Pick-up Date</th>
+                        <th>Pick-up Time</th>
+                        <th>Drop-off Location</th>
+                        <th>Drop-off Date</th>
+                        <th>Drop-off Time</th>
+                        <th>Price</th>
+                    </tr>
+                    <tbody id="order_rows">
+                    <#list orders as order>
+                        <tr>
+                            <td>${order.id}</td>
+                            <td>${order.client.user.firstname}&nbsp;&nbsp;${order.client.user.surname}</td>
+                            <td>${order.car.model}</td>
+                            <td>${order.pickUpLoc}</td>
+                            <td>${order.pickUpDate}</td>
+                            <td>${order.pickUpTime}</td>
+                            <td>${order.dropOffLoc}</td>
+                            <td>${order.dropOffDate}</td>
+                            <td>${order.dropOffTime}</td>
+                            <td>${order.price}</td>
+                        </tr>
+                    </#list>
+                    </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <footer>
     <div class="container">
@@ -206,5 +210,28 @@
         </div>
     </div>
 </footer>
+
+<script src="/js/style-switcher.js"></script>
+<!--End Style Switcher (remove befor uploaded to Themeforest)-->
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="/js/jquery.placeholder.js"></script>
+<script src="/js/locations-autocomplete.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<script src="/js/gmap3.min.js"></script>
+
+
+<!--[if !(gte IE 8)]><!-->
+<script src="/js/wow.min.js"></script>
+<script>
+    // Initialize WOW
+    //-------------------------------------------------------------
+    new WOW({mobile: false}).init();
+</script>
+<!--<![endif]-->
+
+<script src="/js/custom.js"></script>
 </body>
 </html>

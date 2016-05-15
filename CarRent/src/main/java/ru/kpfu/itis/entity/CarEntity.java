@@ -41,10 +41,28 @@ public class CarEntity {
     @Column(name = "price")
     private Integer price;
 
+    @Column(name = "status")
+    private String status;
+
     @OneToMany(targetEntity = OrderEntity.class,mappedBy = "car")
     private List<OrderEntity> orders;
 
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
+    }
 
     public Integer getPrice() {
         return price;

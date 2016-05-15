@@ -34,9 +34,8 @@ public class CarController {
         if (!object.equals("anonymousUser")){
             user = (UserEntity) object;
         }
-        List<CarEntity> cars = carService.getAllCars();
-        CarEntity car = carService.getCarById(1);
-        model.addAttribute("car",car);
+        List<CarEntity> cars = carService.getAllCarsByStatus("active");
+        model.addAttribute("car",cars.get(0));
         model.addAttribute("cars",cars);
         model.addAttribute("user",user);
         return "cars";

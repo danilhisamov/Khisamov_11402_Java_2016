@@ -21,7 +21,9 @@ public class OrderFormTransform {
         order.setCar(carService.getCarById(form.getCar_id()));
         order.setClient(client);
         order.setPickUpLoc(form.getPickUpLoc());
-        order.setDropOffLoc(form.getDropOffLoc());
+        if (form.getDropOffLoc().equals("") || form.getDropOffLoc() == null) {
+            order.setDropOffLoc(form.getPickUpLoc());
+        }
         order.setPickUpDate(form.getPickUpDate());
         order.setDropOffDate(form.getDropOffDate());
         order.setPickUpTime(form.getPickUpTime());

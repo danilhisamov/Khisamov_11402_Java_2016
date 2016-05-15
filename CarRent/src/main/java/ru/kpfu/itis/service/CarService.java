@@ -13,4 +13,8 @@ public interface CarService {
     CarEntity getCarById(Integer id);
     void saveNewCar(CarRegistrForm form);
     List<CarEntity> getAllCars();
+    List<CarEntity> getAllCarsByStatus(String status);
+    void changeDescrip(CarRegistrForm form,Integer car_id);
+    Integer getAllCarsCount();
+    Integer getActiveCarsCount();
 }

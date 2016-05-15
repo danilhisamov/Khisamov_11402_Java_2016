@@ -28,7 +28,7 @@ public class IndexPageController {
     @RequestMapping
     public String getIndexPage(Model model){
         model.addAttribute("orderform",new OrderForm());
-        List<CarEntity> cars = carService.getAllCars();
+        List<CarEntity> cars = carService.getAllCarsByStatus("active");
         model.addAttribute("cars",cars);
         return "index";
     }

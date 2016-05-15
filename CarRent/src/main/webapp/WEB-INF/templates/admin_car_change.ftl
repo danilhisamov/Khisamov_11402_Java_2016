@@ -1,7 +1,9 @@
+<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
+<#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
+
 <!doctype html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +32,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <link href="/css/ie8fix.css" rel="stylesheet">
+    <link href="css/ie8fix.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
@@ -64,10 +66,10 @@
                     <div class="contact pull-left">CONTACT: +7(960)-032-60-98</div>
                     <div class="language-switch pull-right">
                         <a href="/login"><input type="submit" class="submit pull-left" value="Sign in"
-                                                name="submit"></a>
+                                                name="submit"/></a>
 
                         <a href="/registration"><input type="submit" class="submit pull-right" value="Sign up"
-                                                       name="submit"></a>
+                                                       name="submit"/></a>
                     </div>
                 </div>
             </div>
@@ -110,84 +112,90 @@
 
 </header>
 <div id="checkoutModal">
-    <div class="client-body" style="margin-left: 127px;
-    background-color: white;
-    width: 1100px;">
-        <div class="client-body-inner">
-            <div class="container" style="    width: 1035px;">
-                <div class="row profile">
-                    <div class="col-md-3" style="width: 150px;">
-                        <div class="profile-sidebar">
-                            <!-- SIDEBAR USERPIC -->
-                            <!-- END SIDEBAR USERPIC -->
-                            <!-- SIDEBAR USER TITLE -->
-                            <!-- END SIDEBAR USER TITLE -->
-                            <!-- SIDEBAR BUTTONS -->
-                            <!-- END SIDEBAR BUTTONS -->
-                            <!-- SIDEBAR MENU -->
-                            <div class="profile-usermenu" style="font-size: 15px">
-                                <ul class="nav">
-                                    <li class="active">
-                                        <a href="/client">
-                                            <i class="glyphicon glyphicon-home"></i>
-                                            Overview </a>
-                                    </li>
-                                    <li>
-                                        <a href="/client/rides">
-                                            <i class="glyphicon glyphicon-user"></i>
-                                            Rides </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="glyphicon glyphicon-ok"></i>
-                                            Tasks </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-flag"></i>
-                                            Help </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- END MENU -->
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="profile-content" style="font-size: 13px;width: 921px;">
-                            <table class="table table-bordered" cellspacing="10px" border="1">
-                            <thead>
-                            <tr>
-                                <th>Model</th>
-                                <th>Pick-up Location</th>
-                                <th>Pick-up Date</th>
-                                <th>Pick-up Time</th>
-                                <th>Drop-off Location</th>
-                                <th>Drop-off Date</th>
-                                <th>Drop-off Time</th>
-                                <th>Price</th>
-                            </tr>
-                            <#list list as order>
-                                <tbody>
-                                <tr>
-                                    <td>${order.car.model}</td>
-                                    <td>${order.pickUpLoc}</td>
-                                    <td>${order.pickUpDate}</td>
-                                    <td>${order.pickUpTime}</td>
-                                <td>${order.dropOffLoc}</td>
-                                <td>${order.dropOffDate}</td>
-                                <td>${order.dropOffTime}</td>
-                                <td>${order.price}</td>
-                                <tr>
-                                </tbody>
-                            </#list>
-                            </table>
-                        </div>
+    <div class="modal-content">
+    <@sf.form action="/admin/car_change/${car.id}" method="post" id="checkout-form" name="checkout-form" modelAttribute="regform">
+        <!-- Modal body start -->
+        <div class="modal-body">
+            <!-- Checkout Personal Info start -->
+            <div class="checkout-personal-info">
+                <div class="alert hidden" id="checkout-form-msg">
+                    test
+                </div>
+                <h3>CAR INFORMATION</h3>
+                <div class="form-group left">
+                    <label for="model">Model:</label>
+                    <@sf.input path="model" type="text" class="form-control" name="model" id="model" value="${car.model}"/>
+                    <@sf.errors path="model" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="form-group right">
+                    <label for="luggage">Luggage :</label>
+                    <@sf.input path="luggage" type="text" class="form-control" name="luggage" id="luggage" value="${car.luggage}"/>
+                    <@sf.errors path="luggage" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="form-group left">
+                    <label for="doors">Doors:</label>
+                    <@sf.input path="doors" type="text" class="form-control" name="doors" id="doors" value="${car.doors}"/>
+                    <@sf.errors path="doors" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="form-group right">
+                    <label for="seats">Seats:</label>
+                    <@sf.input path="seats" type="text" class="form-control" name="seats" id="seats" value="${car.seats}"/>
+                    <@sf.errors path="seats" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="form-group left">
+                    <label for="air_cond">Air conditioning:</label>
+                    <div class="styled-select-age">
+                        <@sf.select path="air_cond" name="air_cond" id="air_cond" value="${car.air_cond}">
+                            <@sf.option value="Yes">Yes</@sf.option>
+                            <@sf.option value="No">No</@sf.option>
+                        </@sf.select>
+                        <@sf.errors path="air_cond" class = "form-control alert alert-warning text-center"/>
                     </div>
                 </div>
+                <div class="form-group right age">
+                    <label for="transmission">Transmission:</label>
+                    <div class="styled-select-age">
+                        <@sf.select path="transmission" name="transmission" id="transmission" value="${car.transmission}">
+                            <@sf.option value="Automatic">Automatic</@sf.option>
+                            <@sf.option value="Mechanic">Mechanic</@sf.option>
+                        </@sf.select>
+                        <@sf.errors path="transmission" class = "form-control alert alert-warning text-center"/>
+                    </div>
+                </div>
+                <div class="form-group left">
+                    <label for="price">Price:</label>
+                    <@sf.input path="price" type="text" name="price" id="price"  value="${car.price}"/>
+                    <@sf.errors path="price" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="form-group right">
+                    <label for="price">Status:</label>
+                    <@sf.select path="status" name="status" id="status" value="${car.status}">
+                      <@sf.option value="active">Active</@sf.option>
+                    <@sf.option value"not_active">Not Active</@sf.option>
+                    </@sf.select>
+                    <@sf.errors path="status" class = "form-control alert alert-warning text-center"/>
+                </div>
+                <div class="clearfix"></div>
             </div>
+            <!-- Checkout Personal Info end -->
+
+            <!-- Checkout Address Info start -
+            <!-- Checkout Address Info end -->
         </div>
+        <!-- Modal body end -->
+
+        <!-- Modal footer start -->
+        <div class="modal-footer">
+                  <span class="btn-border btn-yellow">
+                    <button type="submit" class="btn btn-primary btn-yellow">Done</button>
+                  </span>
+        </div>
+        <!-- Modal footer end -->
+
+    </@sf.form>
     </div>
 </div>
+
 <footer>
     <div class="container">
         <div class="row">

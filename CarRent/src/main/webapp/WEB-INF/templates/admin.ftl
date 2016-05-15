@@ -89,8 +89,8 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#" class="scroll-to">Home</a></li>
                             <li><a href="#services" class="scroll-to">Services</a></li>
-                            <li><a href="#vehicles" class="scroll-to">Vehicle Models</a></li>
-                            <li><a href="#reviews" class="scroll-to">Reviews</a></li>
+                            <li><a href="/admin/cars" class="scroll-to">Vehicle Models</a></li>
+                            <li><a href="/admin/orders" class="scroll-to">Orders</a></li>
                             <li><a href="#locations" class="scroll-to">Locations</a></li>
                             <li><a href="#contact" class="scroll-to">Contact</a></li>
                         </ul>
@@ -106,6 +106,9 @@
 <div id="loginModal">
     <div class="modal-content">
  hello admin
+        <a href="/generate/pdf.htm">
+            <button>Generate</button>
+        </a>
     </div>
 </div>
 

@@ -41,10 +41,19 @@ public class OrderEntity implements Serializable{
     @Column(name = "pickUpTime")
     private String pickUpTime;
 
+    @Column(name = "price")
+    private Integer price;
+
     @Column(name = "dropOffTime")
     private String  dropOffTime;
 
+    public Integer getPrice() {
+        return price;
+    }
 
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 
     public String getPickUpTime() {
         return pickUpTime;

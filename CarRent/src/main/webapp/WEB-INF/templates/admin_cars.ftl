@@ -1,7 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +29,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <link href="/css/ie8fix.css" rel="stylesheet">
+    <link href="css/ie8fix.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
@@ -42,10 +41,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/img/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="/img/ico/favicon.png">
+    <link rel="shortcut icon" href="/img/ico/favicon2.png">
 
 </head>
-<body>
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="260">
+
+<!-- Header start -->
 <header data-spy="affix" data-offset-top="39" data-offset-bottom="0" class="large">
 
     <div class="row container box">
@@ -93,7 +94,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <!-- Nav-Links start -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" class="scroll-to">Home</a></li>
+                            <li class="active"><a href="#" class="scroll-to">Home</a></li>
                             <li><a href="#services" class="scroll-to">Services</a></li>
                             <li><a href="#vehicles" class="scroll-to">Vehicle Models</a></li>
                             <li><a href="#reviews" class="scroll-to">Reviews</a></li>
@@ -109,85 +110,118 @@
     </div>
 
 </header>
-<div id="checkoutModal">
-    <div class="client-body" style="margin-left: 127px;
-    background-color: white;
-    width: 1100px;">
-        <div class="client-body-inner">
-            <div class="container" style="    width: 1035px;">
-                <div class="row profile">
-                    <div class="col-md-3" style="width: 150px;">
-                        <div class="profile-sidebar">
-                            <!-- SIDEBAR USERPIC -->
-                            <!-- END SIDEBAR USERPIC -->
-                            <!-- SIDEBAR USER TITLE -->
-                            <!-- END SIDEBAR USER TITLE -->
-                            <!-- SIDEBAR BUTTONS -->
-                            <!-- END SIDEBAR BUTTONS -->
-                            <!-- SIDEBAR MENU -->
-                            <div class="profile-usermenu" style="font-size: 15px">
-                                <ul class="nav">
-                                    <li class="active">
-                                        <a href="/client">
-                                            <i class="glyphicon glyphicon-home"></i>
-                                            Overview </a>
-                                    </li>
-                                    <li>
-                                        <a href="/client/rides">
-                                            <i class="glyphicon glyphicon-user"></i>
-                                            Rides </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="glyphicon glyphicon-ok"></i>
-                                            Tasks </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-flag"></i>
-                                            Help </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- END MENU -->
+
+<div class="col-md-12" style="background-color: #ffbf00;
+margin-top: 30px;
+font-size: 36px;
+  font-weight: 900;
+  background: -webkit-linear-gradient(top, #ffbf00 0%, #fcd45f 50%, #ffbf00 100%);
+  background: linear-gradient(to bottom, #ffbf00 0%, #fcd45f 50%, #ffbf00 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@mainColor', endColorstr='@mainColor', GradientType=0);">
+    <h2 class="title wow fadeInDown" data-wow-offset="200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vehicle Models - <span class="subtitle">Our rental fleet at a glance</span>
+    </h2>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="styled-choose" style="margin-left: 140px">
+    <select name="ch" id="ch" style="border: none;
+    font-size: 16px;
+    border-radius: 5px ;
+    width: 10%;
+    background-image: none;
+    background: #dbdbdb;
+    -webkit-appearance: none;
+    padding: 9px 10px;
+    height: 39px;">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="not_active">Not Active</option>
+    </select>
+
+    <input type="submit" class="btn btn-primary btn-yellow" style=" border: none;
+    background-color: yellow;
+    color: #716D6D;
+    height: 39px;
+    margin-bottom: 5px;
+" value="Show" onclick="getCarsByStatus()"/>
+</div>
+<div id="car_res"> <!-- Vehicle nav end -->
+<#if cars??>
+    <#list cars as car>
+        <section id="vehicles" class="container" style="margin-left: 100px">
+            <div class="row">
+                <!-- Vehicle nav start -->
+
+                <!-- Vehicle 1 data start -->
+                <div class="vehicle-data" id="vehicle" style="display: ">
+                    <div class="col-md-6 wow fadeIn" data-wow-offset="100">
+                        <div class="vehicle-img">
+                            <img class="img-responsive" id="carPhoto" src="${car.photoPath}" alt="Vehicle">
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="profile-content" style="font-size: 13px;width: 921px;">
-                            <table class="table table-bordered" cellspacing="10px" border="1">
-                            <thead>
+                    <div class="col-md-3 wow fadeInUp" data-wow-offset="200">
+                        <div class="vehicle-price" id="car-price">
+                            <div id="price" style="float: left">${car.price}</div>
+                            <span class="info">&nbsp;rent per day</span></div>
+                        <table class="table vehicle-features">
                             <tr>
-                                <th>Model</th>
-                                <th>Pick-up Location</th>
-                                <th>Pick-up Date</th>
-                                <th>Pick-up Time</th>
-                                <th>Drop-off Location</th>
-                                <th>Drop-off Date</th>
-                                <th>Drop-off Time</th>
-                                <th>Price</th>
+                                <td>Model</td>
+                                <td id="model">${car.model}</td>
                             </tr>
-                            <#list list as order>
-                                <tbody>
-                                <tr>
-                                    <td>${order.car.model}</td>
-                                    <td>${order.pickUpLoc}</td>
-                                    <td>${order.pickUpDate}</td>
-                                    <td>${order.pickUpTime}</td>
-                                <td>${order.dropOffLoc}</td>
-                                <td>${order.dropOffDate}</td>
-                                <td>${order.dropOffTime}</td>
-                                <td>${order.price}</td>
-                                <tr>
-                                </tbody>
-                            </#list>
-                            </table>
-                        </div>
+                            <tr>
+                                <td>Doors</td>
+                                <td id="doors">${car.doors}</td>
+                            </tr>
+                            <tr>
+                                <td>Seats</td>
+                                <td id="seats">${car.seats}</td>
+                            </tr>
+                            <tr>
+                                <td>Luggage</td>
+                                <td id="luggage">${car.luggage}</td>
+                            </tr>
+                            <tr>
+                                <td>Transmission</td>
+                                <td id="transmission">${car.transmission}</td>
+                            </tr>
+                            <tr>
+                                <td>Air conditioning</td>
+                                <td id="air_cond">${car.air_cond}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td id="status">${car.status}</td>
+                            </tr>
+                        </table>
+                        <a href="/admin/car_change/${car.id}">
+                            <input type="button" name="admin_add_car_button" value="Change Description">
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </#list>
+</#if>
 </div>
+<a href="/admin/car_registration">
+    <input type="button" name="admin_add_car_button" style=" border: none;
+    background-color: yellow;
+    color: #716D6D;
+    border-radius: 5px;
+    height: 39px;
+    margin-left: 900px;
+        margin-top: 50px;
+    margin-bottom: 5px;" value="Add Car">
+</a>
+
+<!-- Vehicles end -->
 <footer>
     <div class="container">
         <div class="row">
@@ -206,5 +240,36 @@
         </div>
     </div>
 </footer>
+<!-- Footer end -->
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<#--<script src="js/jquery-1.11.0.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<!--Start Style Switcher (remove befor uploaded to Themeforest)-->
+<script src="/js/style-switcher.js"></script>
+<!--End Style Switcher (remove befor uploaded to Themeforest)-->
+<script src="/js/jquery-1.11.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="/js/jquery.placeholder.js"></script>
+<script src="/js/locations-autocomplete.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<script src="/js/gmap3.min.js"></script>
+
+
+<!--[if !(gte IE 8)]><!-->
+<script src="/js/wow.min.js"></script>
+<script>
+    // Initialize WOW
+    //-------------------------------------------------------------
+    new WOW({mobile: false}).init();
+</script>
+<!--<![endif]-->
+
+<script src="/js/custom.js"></script>
+
 </body>
 </html>

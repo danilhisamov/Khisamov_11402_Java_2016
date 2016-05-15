@@ -1071,7 +1071,7 @@ header.large .brand {
 /* Footer
 --------------------------------------------*/
 footer {
-  margin-top: 90px;
+  margin-top: 200px;
   padding: 40px 0;
   background-color: #dbdbdb;
 }
@@ -2166,11 +2166,36 @@ footer .footer-nav li a {
 
   /* Profile Content */
   .profile-content {
-    font-size: 18;
+    font-size: 18px;
     margin-top: 20px;
     padding: 20px;
     background: #fff;
   }
 
+  .styled-choose {
+    border: 2px solid #efe9e9;
+    height: 43px;
+    position: relative;
+  }
+  .styled-choose:after {
+    content: '';
+    background: #ffffff url('../img/dropdown-icon.png') no-repeat 5px 18px;
+    right: 0px;
+    top: 0px;
+    width: 29px;
+    height: 39px;
+    position: absolute;
+    pointer-events: none;
+  }
+  .styled-choose select {
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    background-image: none;
+    background: #fff;
+    -webkit-appearance: none;
+    padding: 9px 10px;
+    height: 39px;
+  }
 
 }

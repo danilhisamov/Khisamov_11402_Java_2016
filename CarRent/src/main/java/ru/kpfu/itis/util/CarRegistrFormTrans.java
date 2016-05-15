@@ -18,6 +18,7 @@ public class CarRegistrFormTrans {
         car.setSeats(form.getSeats());
         car.setPhotoPath("/img/cars/car_default.png");
         car.setPrice(form.getPrice());
+        car.setStatus(form.getStatus());
         return car;
     }
 }

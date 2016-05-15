@@ -12,4 +12,6 @@ import java.util.List;
 public interface ClientService {
     List<ClientEntity> getAllClients();
     void saveNewClient(RegistrationForm registrationForm);
+    void save(ClientEntity clientEntity);
+    Integer getAllClientCount();
 }

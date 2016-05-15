@@ -420,3 +420,75 @@ function getCar(id) {
     })
 }
 
+function getCarsByStatus() {
+    $.ajax({
+        url: "/admin/cars/show",
+        method: "GET",
+        data: {"choose": $("#ch").val()},
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function (resp) {
+            $("#car_res").text("")
+            for (var i = 0;i < resp.length;i++){
+                $("#car_res").append("<section id='vehicles' class='container' style='margin-left: 100px'>" +
+                    "<div class='row'>" +
+                    "<div class='vehicle-data' id='vehicle' style='display: '>" +
+                    "<div class='col-md-6 wow fadeIn' data-wow-offset='100'>"+
+                    "<div class='vehicle-img'>"+
+                    "<img class='img-responsive' id='carPhoto' src=" + resp[i].photoPath + ">"+
+                    "</div> </div>"+
+                    "<div class='col-md-3 wow fadeInUp' data-wow-offset='200'> <div class='vehicle-price' id='car-price'>"+
+                    "<div id='price' style='float: left'>" + resp[i].price + "</div> <span class='info'>&nbsp;rent per day</span></div>"+
+                "<table class='table vehicle-features'>"+
+                    "<tr>"+
+                    "<td>Model</td> <td id='model'>" + resp[i].model + "</td>" +
+                    "</tr> <tr>"+
+                    "<td>Doors</td> <td id='doors'>" + resp[i].doors + "</td>"+
+                    "</tr> <tr>"+
+                    "<td>Seats</td> <td id='seats'>" + resp[i].seats + "</td>"+
+                    "</tr> <tr>"+
+                    "<td>Luggage</td> <td id='luggage'>" + resp[i].luggage + "</td>"+
+                    "</tr> <tr>" +
+                    "<td>Transmission</td> <td id='transmission'>" + resp[i].transmission + "</td>"+
+                    "</tr> <tr>" +
+                    "<td>Air conditioning</td> <td id='air_cond'>" + resp[i].air_cond + "</td>" +
+                    "</tr><tr>"+
+                    "<td>Status</td><td id='status'>" + resp[i].status + "</td> </tr>"+
+                    "</table>"+
+                    "<a href= '/admin/car_change/" + resp[i].id + "'> <input type='button' name='admin_add_car_button' value='Add Car'></a>"+
+                    "</div> </div> </div>" +
+                    "</section>")
+            }
+        }
+    })
+}
+
+function getOrdersByTime(time){
+    $.ajax({
+        url: "/admin/orders/show",
+        method: "GET",
+        data: {"time": time},
+        dataType: 'json',
+        contentType: 'application/json',
+        mimeType: 'application/json',
+        success: function (resp) {
+            $("#order_rows").text("")
+            for (var i = 0;i < resp.length;i++){
+                $("#order_rows").append("<tr>" +
+                    "<td>" + resp[i].id + "</td>" +
+                    "<td>" + resp[i].client + "</td>" +
+                    "<td>" + resp[i].car + "</td>" +
+                    "<td>" + resp[i].pickUpLoc + "</td>" +
+                    "<td>" + resp[i].pickUpDate + "</td>" +
+                    "<td>" + resp[i].pickUpTime + "</td>" +
+                    "<td>" + resp[i].dropOffLoc+ "</td>" +
+                    "<td>" + resp[i].dropOffDate+ "</td>" +
+                    "<td>" + resp[i].dropOffTime+ "</td>" +
+                    "<td>" + resp[i].price+ "</td>" +
+                    "</tr>")
+            }
+        }
+    })
+}
+
