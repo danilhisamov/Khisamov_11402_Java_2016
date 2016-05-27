@@ -37,15 +37,6 @@ public class Connection {
         }
     }
 
-//    public List<ContractEntity> getContracts() {
-//        try {
-//            return Arrays.asList(mapper().readValue(getResponse("contracts"), ContractEntity[].class));
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-
     private ObjectMapper mapper() {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
@@ -105,7 +96,7 @@ public class Connection {
 
 
     public void postNewCar(CarEntity carsEntity) {
-        doPost("/cars/new", carsEntity);
+        doPost("/cars/add_new_car", carsEntity);
     }
 
     public void postNewUser(UserEntity usersEntity) {

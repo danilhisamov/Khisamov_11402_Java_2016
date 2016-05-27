@@ -16,13 +16,13 @@
       <Label layoutX="28.0" layoutY="179.0" text="Luggage" />
       <Label layoutX="28.0" layoutY="247.0" text="Price" />
       <Label layoutX="328.0" layoutY="140.0" text="Transmission" />
-      <Button fx:id="addCarButton" layoutX="471.0" layoutY="268.0" mnemonicParsing="false" onAction="#addNewCar" text="Button" />
+      <Button fx:id="addCarButton" layoutX="471.0" layoutY="268.0" mnemonicParsing="false" onAction="#addNewCar" text="Add Car" prefHeight="44.0" prefWidth="60.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
+      <Button fx:id="cancel" layoutX="400" layoutY="268.0" mnemonicParsing="false" onAction="#backToCars" text="Cancel" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
       <TextField fx:id="doors" layoutX="96.0" layoutY="312.0" />
       <Label layoutX="31.0" layoutY="316.0" text="Doors" />
       <ChoiceBox fx:id="select" layoutX="422.0" layoutY="136.0" prefWidth="150.0">
          <String fx:value="Mechanical"/>
          <String fx:value="Automatical"/>
-         <String fx:value="/4"/>
       </ChoiceBox>
    </children>
 </Pane>
