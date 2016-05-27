@@ -19,6 +19,8 @@ public class AddCarController extends AbstractController{
     public TextField doors;
     public ChoiceBox select;
     public Button cancel;
+    public Button menu_cars_button;
+    public Button menu_orders_button;
 
 
     public void addNewCar(ActionEvent actionEvent) {
@@ -39,5 +41,14 @@ public class AddCarController extends AbstractController{
 
     public void backToCars(ActionEvent actionEvent) {
         app.changeScene("cars-scene");
+    }
+
+
+    public void moveToCars(ActionEvent actionEvent) {
+        app.changeScene("cars-scene");
+    }
+
+    public void moveToOrders(ActionEvent actionEvent) {
+        app.changeScene("orders-scene");
     }
 }

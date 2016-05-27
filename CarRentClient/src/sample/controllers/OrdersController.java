@@ -5,9 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import sample.entity.OrderEntity;
 
 import java.text.DateFormat;
@@ -155,6 +153,10 @@ public class OrdersController extends AbstractController{
         list.addAll(server.getFutureOrders());
 
         orders_table.setItems(list);
+    }
+
+    public void moveToAddCar(ActionEvent actionEvent) {
+        app.changeScene("save-new-car");
     }
 
 }

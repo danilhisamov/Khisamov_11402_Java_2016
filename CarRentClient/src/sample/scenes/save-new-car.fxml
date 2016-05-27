@@ -5,22 +5,29 @@
 <?import javafx.scene.layout.*?>
 
 
+<?import javafx.geometry.Insets?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AddCarController">
    <children>
-      <TextField fx:id="model" layoutX="96.0" layoutY="52.0" />
-      <TextField fx:id="seats" layoutX="96.0" layoutY="111.0" />
-      <TextField fx:id="luggage" layoutX="96.0" layoutY="175.0" />
-      <TextField fx:id="price" layoutX="96.0" layoutY="243.0" />
-      <Label layoutX="28.0" layoutY="56.0" text="Model" />
-      <Label layoutX="28.0" layoutY="115.0" text="Seats" />
-      <Label layoutX="28.0" layoutY="179.0" text="Luggage" />
-      <Label layoutX="28.0" layoutY="247.0" text="Price" />
-      <Label layoutX="328.0" layoutY="140.0" text="Transmission" />
-      <Button fx:id="addCarButton" layoutX="471.0" layoutY="268.0" mnemonicParsing="false" onAction="#addNewCar" text="Add Car" prefHeight="44.0" prefWidth="60.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
-      <Button fx:id="cancel" layoutX="400" layoutY="268.0" mnemonicParsing="false" onAction="#backToCars" text="Cancel" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
-      <TextField fx:id="doors" layoutX="96.0" layoutY="312.0" />
-      <Label layoutX="31.0" layoutY="316.0" text="Doors" />
-      <ChoiceBox fx:id="select" layoutX="422.0" layoutY="136.0" prefWidth="150.0" value="Automatical">
+      <HBox layoutX="102.0" layoutY="14.0" prefHeight="45.0" prefWidth="111.0" spacing="4.0">
+         <children>
+            <Button fx:id="menu_cars_button" mnemonicParsing="false" onAction="#moveToCars" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Cars" textFill="#e0f802" />
+            <Button fx:id="menu_orders_button" mnemonicParsing="false" onAction="#moveToOrders" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Orders" textFill="#e1ff00" />
+         </children>
+      </HBox>
+      <TextField fx:id="model" layoutX="96.0" layoutY="82.0" />
+      <TextField fx:id="seats" layoutX="96.0" layoutY="141.0" />
+      <TextField fx:id="luggage" layoutX="96.0" layoutY="205.0" />
+      <TextField fx:id="price" layoutX="96.0" layoutY="273.0" />
+      <Label layoutX="28.0" layoutY="86.0" text="Model" />
+      <Label layoutX="28.0" layoutY="145.0" text="Seats" />
+      <Label layoutX="28.0" layoutY="209.0" text="Luggage" />
+      <Label layoutX="28.0" layoutY="277.0" text="Price" />
+      <Label layoutX="328.0" layoutY="170.0" text="Transmission" />
+      <Button fx:id="addCarButton" layoutX="471.0" layoutY="298.0" mnemonicParsing="false" onAction="#addNewCar" text="Add Car" prefHeight="44.0" prefWidth="60.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
+      <Button fx:id="cancel" layoutX="400" layoutY="298.0" mnemonicParsing="false" onAction="#backToCars" text="Cancel" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" textFill="#e1ff00"/>
+      <TextField fx:id="doors" layoutX="96.0" layoutY="342.0" />
+      <Label layoutX="31.0" layoutY="346.0" text="Doors" />
+      <ChoiceBox fx:id="select" layoutX="422.0" layoutY="166.0" prefWidth="150.0" value="Automatical">
          <String fx:value="Mechanical"/>
          <String fx:value="Automatical"/>
       </ChoiceBox>

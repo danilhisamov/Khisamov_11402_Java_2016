@@ -19,7 +19,7 @@
             <Button fx:id="orders_future" mnemonicParsing="false" onAction="#showFuture" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Future" textFill="#f3fc01" />
          </children>
       </VBox>
-      <HBox layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="107.0" spacing="4.0">
+      <HBox layoutX="102.0" layoutY="14.0" prefHeight="45.0" prefWidth="111.0" spacing="4.0">
          <children>
             <Button fx:id="menu_cars_button" mnemonicParsing="false" onAction="#moveToCars" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Cars" textFill="#e0f802" />
             <Button fx:id="menu_orders_button" mnemonicParsing="false" onAction="#moveToOrders" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Orders" textFill="#e1ff00" />
