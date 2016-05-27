@@ -71,20 +71,6 @@ public class Connection {
     }
 
 
-    public void updateOrderStatus(long id) {
-        doPost("/orders", id);
-    }
-
-    public List<CarEntity> getAvailableCars() {
-        try {
-            return Arrays.asList(mapper().readValue(getResponse("cars/available"), CarEntity[].class));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-
     public List<CarEntity> getCars() {
         try {
             return Arrays.asList(mapper().readValue(getResponse("cars"), CarEntity[].class));
@@ -94,12 +80,35 @@ public class Connection {
         }
     }
 
+    public List<OrderEntity> getPastOrders(){
+        try {
+            return Arrays.asList(mapper().readValue(getResponse("orders/past"), OrderEntity[].class));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<OrderEntity> getCurrentOrders(){
+        try {
+            return Arrays.asList(mapper().readValue(getResponse("orders/current"), OrderEntity[].class));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<OrderEntity> getFutureOrders(){
+        try {
+            return Arrays.asList(mapper().readValue(getResponse("orders/future"), OrderEntity[].class));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public void postNewCar(CarEntity carsEntity) {
         doPost("/cars/add_new_car", carsEntity);
     }
 
-    public void postNewUser(UserEntity usersEntity) {
-        doPost("/users/new", usersEntity);
-    }
 }

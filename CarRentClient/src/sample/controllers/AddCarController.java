@@ -31,6 +31,7 @@ public class AddCarController extends AbstractController{
         carsEntity.setLuggage(luggage.getText());
         carsEntity.setTransmission(select.getSelectionModel().getSelectedItem().toString());
         carsEntity.setStatus("active");
+        carsEntity.setPhotoPath("/img/cars/default.png");
         server.postNewCar(carsEntity);
 
         app.changeScene("cars-scene");

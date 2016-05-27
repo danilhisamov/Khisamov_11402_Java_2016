@@ -68,4 +68,93 @@ public class OrdersController extends AbstractController{
     public void moveToOrders(ActionEvent actionEvent) {
         app.changeScene("orders-scene");
     }
+
+    public void showAll(ActionEvent actionEvent) {
+        app.changeScene("orders-scene");
+    }
+
+    public void showPast(ActionEvent actionEvent) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        id_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
+
+        carmodel_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getCar().getModel()));
+
+        clents_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getClient().getUser().getFirstname()) + "  " + String.valueOf(cellData.getValue().getClient().getUser().getSurname())));
+
+        pickUpDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getPickUpDate())));
+
+        dropOffDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getDropOffDate())));
+
+        price_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getPrice())));
+
+
+        ObservableList<OrderEntity> list = FXCollections.observableArrayList();
+        list.addAll(server.getPastOrders());
+
+        orders_table.setItems(list);
+    }
+
+    public void showCurrent(ActionEvent actionEvent) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        id_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
+
+        carmodel_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getCar().getModel()));
+
+        clents_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getClient().getUser().getFirstname()) + "  " + String.valueOf(cellData.getValue().getClient().getUser().getSurname())));
+
+        pickUpDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getPickUpDate())));
+
+        dropOffDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getDropOffDate())));
+
+        price_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getPrice())));
+
+
+        ObservableList<OrderEntity> list = FXCollections.observableArrayList();
+        list.addAll(server.getCurrentOrders());
+
+        orders_table.setItems(list);
+    }
+
+    public void showFuture(ActionEvent actionEvent) {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        id_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getId())));
+
+        carmodel_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getCar().getModel()));
+
+        clents_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getClient().getUser().getFirstname()) + "  " + String.valueOf(cellData.getValue().getClient().getUser().getSurname())));
+
+        pickUpDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getPickUpDate())));
+
+        dropOffDate_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(format.format(cellData.getValue().getDropOffDate())));
+
+        price_column.setCellValueFactory(cellData ->
+                new SimpleStringProperty(String.valueOf(cellData.getValue().getPrice())));
+
+
+        ObservableList<OrderEntity> list = FXCollections.observableArrayList();
+        list.addAll(server.getFutureOrders());
+
+        orders_table.setItems(list);
+    }
+
 }

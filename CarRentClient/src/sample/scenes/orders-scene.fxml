@@ -9,14 +9,14 @@
    <children>
       <VBox layoutX="14.0" layoutY="103.0" prefHeight="213.0" prefWidth="79.0" spacing="10.0">
          <children>
-            <Button fx:id="orders_all" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="All Orders" textFill="#fcf700">
+            <Button fx:id="orders_all" mnemonicParsing="false" onAction="#showAll" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="All Orders" textFill="#fcf700">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button fx:id="orders_past" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Past" textFill="#f2ff00" />
-            <Button fx:id="orders_current" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Current" textFill="#f2ff00" />
-            <Button fx:id="orders_future" mnemonicParsing="false" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Future" textFill="#f3fc01" />
+            <Button fx:id="orders_past" mnemonicParsing="false" onAction="#showPast" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Past" textFill="#f2ff00" />
+            <Button fx:id="orders_current" mnemonicParsing="false" onAction="#showCurrent" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Current" textFill="#f2ff00" />
+            <Button fx:id="orders_future" mnemonicParsing="false" onAction="#showFuture" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Future" textFill="#f3fc01" />
          </children>
       </VBox>
       <HBox layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="107.0" spacing="4.0">
