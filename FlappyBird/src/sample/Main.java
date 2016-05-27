@@ -1,6 +1,6 @@
 package sample;
 
-import javafx.animation.AnimationTimer;
+import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,14 +47,14 @@ public class Main extends Application {
             int space = random.nextInt(150) + 100;
             int height = random.nextInt(600 - space);
 
-            Wall wall = new Wall(height);
+            Wall wall = new Wall(height + 100);
             wall.setTranslateX(i * 350 + 600);
-            wall.setTranslateY(0);
+            wall.setTranslateY(-100);
             upWalls.add(wall);
 
-            Wall wall2 = new Wall(600 - space - height);
+            Wall wall2 = new Wall(600 - space - height + 100);
             wall2.setTranslateX(i*350 + 600);
-            wall2.setTranslateY(height + space);
+            wall2.setTranslateY(height + space + 100);
             downWalls.add(wall2);
 
         }
@@ -99,10 +100,32 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Scene scene = new Scene(createContent());
 
+        RotateTransition rotateTransition =
+                new RotateTransition(Duration.millis(3000), bird);
+        rotateTransition.setByAngle(360f);
+        rotateTransition.setCycleCount(Timeline.INDEFINITE);
+        rotateTransition.setAutoReverse(false);
+        rotateTransition.play();
+
         scene.setOnKeyTyped(event -> bird.jump());
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+        for (Wall wall : upWalls) {
+            final KeyValue kv = new KeyValue(wall.rect.yProperty(), 100);
+            final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+            timeline.getKeyFrames().add(kf);
+        }
+        for (Wall wall : downWalls) {
+            final KeyValue kv = new KeyValue(wall.rect.yProperty(), -100);
+            final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
+            timeline.getKeyFrames().add(kf);
+        }
+        timeline.play();
 
 
         AnimationTimer timer = new AnimationTimer() {
