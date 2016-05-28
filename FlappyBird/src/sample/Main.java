@@ -26,6 +26,8 @@ public class Main extends Application {
     public static Wall up;
     public static Wall down;
 
+    public static Bonus bonus;
+
     static int upWallIt = 0;
     static int downWallIt = 0;
 
@@ -47,14 +49,15 @@ public class Main extends Application {
             int space = random.nextInt(150) + 100;
             int height = random.nextInt(600 - space);
 
-            Wall wall = new Wall(height + 100);
+
+            Wall wall = new Wall(height + 150);
             wall.setTranslateX(i * 350 + 600);
-            wall.setTranslateY(-100);
+            wall.setTranslateY(-150);
             upWalls.add(wall);
 
-            Wall wall2 = new Wall(600 - space - height + 100);
+            Wall wall2 = new Wall(600 - space - height + 150);
             wall2.setTranslateX(i*350 + 600);
-            wall2.setTranslateY(height + space + 100);
+            wall2.setTranslateY(height + space + 150);
             downWalls.add(wall2);
 
         }
@@ -62,6 +65,11 @@ public class Main extends Application {
         up = upWalls.get(upWallIt);
         down = downWalls.get(downWallIt);
 
+        bonus = new Bonus();
+        bonus.setTranslateX(1100);
+        bonus.setTranslateY(300);
+
+        gameRoot.getChildren().addAll(bonus);
         gameRoot.getChildren().addAll(bird);
         gameRoot.getChildren().addAll(downWalls);
         gameRoot.getChildren().addAll(upWalls);
@@ -71,6 +79,11 @@ public class Main extends Application {
     }
 
     public void refresh(){
+        if (bird.getBoundsInParent().intersects(bonus.getBoundsInParent())){
+            score += 1;
+            gameRoot.getChildren().remove(bonus);
+        }
+
         if (bird.velocity.getY()<5){
             bird.velocity = bird.velocity.add(0,1);
         }
@@ -101,11 +114,12 @@ public class Main extends Application {
         Scene scene = new Scene(createContent());
 
         RotateTransition rotateTransition =
-                new RotateTransition(Duration.millis(3000), bird);
+                new RotateTransition(Duration.millis(3000), bonus);
         rotateTransition.setByAngle(360f);
         rotateTransition.setCycleCount(Timeline.INDEFINITE);
         rotateTransition.setAutoReverse(false);
         rotateTransition.play();
+
 
         scene.setOnKeyTyped(event -> bird.jump());
 
