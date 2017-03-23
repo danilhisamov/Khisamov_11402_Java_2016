@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="666.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CarsController">
+   <children>
+      <HBox layoutX="24.0" layoutY="24.0" prefHeight="45.0" prefWidth="107.0" spacing="4.0">
+         <children>
+            <Button fx:id="menu_cars_button" mnemonicParsing="false" onAction="#moveToCars" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Cars" textFill="#e0f802" />
+            <Button fx:id="menu_orders_button" mnemonicParsing="false" onAction="#moveToOrders" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Orders" textFill="#e1ff00" />
+         </children>
+      </HBox>
+      <TableView fx:id="carsTable" layoutX="18.0" layoutY="85.0" prefHeight="228.0" prefWidth="644.0" style="-fx-background-color: yellow;">
+        <columns>
+          <TableColumn fx:id="carsIdColumn" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="carsModelColumn" prefWidth="89.0" text="Model" />
+            <TableColumn fx:id="carsSeatsColumn" prefWidth="86.0" text="Seats" />
+            <TableColumn fx:id="carsLuggageColumn" prefWidth="91.0" text="Luggage" />
+            <TableColumn fx:id="carsTransmissionColumn" prefWidth="121.0" text="Transmission" />
+            <TableColumn fx:id="carsPriceColumn" prefWidth="106.0" text="Price" />
+            <TableColumn fx:id="carStatus" prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button fx:id="addCarButton" layoutX="505.0" layoutY="331.0" mnemonicParsing="false" onAction="#addNewCar" prefHeight="44.0" prefWidth="82.0" style="-fx-background-color: grey;" text="Add Car" textFill="#dffc07" />
+   </children>
+</Pane>

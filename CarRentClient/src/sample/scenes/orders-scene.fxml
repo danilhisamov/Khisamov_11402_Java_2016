@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="727.0" style="-fx-background-color: yellow; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.OrdersController">
+   <children>
+      <VBox layoutX="14.0" layoutY="103.0" prefHeight="213.0" prefWidth="79.0" spacing="10.0">
+         <children>
+            <Button fx:id="orders_all" mnemonicParsing="false" onAction="#showAll" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="All Orders" textFill="#fcf700">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="orders_past" mnemonicParsing="false" onAction="#showPast" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Past" textFill="#f2ff00" />
+            <Button fx:id="orders_current" mnemonicParsing="false" onAction="#showCurrent" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Current" textFill="#f2ff00" />
+            <Button fx:id="orders_future" mnemonicParsing="false" onAction="#showFuture" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Future" textFill="#f3fc01" />
+         </children>
+      </VBox>
+      <HBox layoutX="102.0" layoutY="14.0" prefHeight="45.0" prefWidth="111.0" spacing="4.0">
+         <children>
+            <Button fx:id="menu_cars_button" mnemonicParsing="false" onAction="#moveToCars" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Cars" textFill="#e0f802" />
+            <Button fx:id="menu_orders_button" mnemonicParsing="false" onAction="#moveToOrders" prefHeight="44.0" prefWidth="52.0" style="-fx-background-color: grey;" text="Orders" textFill="#e1ff00" />
+         </children>
+      </HBox>
+      <TableView fx:id="orders_table" layoutX="102.0" layoutY="64.0" prefHeight="319.0" prefWidth="614.0" style="-fx-background-color: yellow;">
+        <columns>
+          <TableColumn fx:id="id_column" prefWidth="54.0" text="Order id" />
+          <TableColumn fx:id="carmodel_column" prefWidth="66.0" text="Car model" />
+            <TableColumn fx:id="clents_column" prefWidth="121.0" text="Client" />
+            <TableColumn fx:id="pickUpDate_column" prefWidth="128.0" text="PickUp Date" />
+            <TableColumn fx:id="dropOffDate_column" prefWidth="131.0" text="DropOff Date" />
+            <TableColumn fx:id="price_column" prefWidth="113.0" text="Price" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
