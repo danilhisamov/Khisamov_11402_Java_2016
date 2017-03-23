@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="ak47m" class="A2016_02_0814.Ak47M"/>
+
+    <bean id="ak47" class="A2016_02_0814.Ak47"/>
+
+    <bean id="bandit" class="A2016_02_0814.Bandit">
+        <constructor-arg value="Vasya"/>
+        <constructor-arg value="Ytyg"/>
+    </bean>
+
+    <bean id="bpof" class="A2016_02_0814.BirdPoliceOfficer"/>
+
+    <bean id="boss" class="A2016_02_0814.Boss"/>
+
+    <bean id="cd" class="A2016_02_0814.CriminalDoctor"/>
+
+    <bean id="dpof" class="A2016_02_0814.DolphinPoliceOfficer"/>
+
+    <bean id="eagle" class="A2016_02_0814.Eagle"/>
+
+    <bean id="m4a4" class="A2016_02_0814.M4A4"/>
+
+    <bean id="pd" class="A2016_02_0814.PoliceDoctor"/>
+
+    <bean id="pof" class="A2016_02_0814.PoliceOfficer">
+        <constructor-arg value="Джон Смит"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="seal" class="A2016_02_0814.Seal"/>
+</beans>
